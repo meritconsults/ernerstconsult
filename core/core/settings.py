@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-i)ux%15wmn-t2hsuo=-%&bbqb-e4dj2b60zjfmfh-%6vwwp9(#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -43,9 +44,8 @@ INSTALLED_APPS = [
     "payment",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
