@@ -10,7 +10,7 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Website Name */}
           <div className="text-xl font-semibold text-blue-700">
-            Merit Consult
+            Merit Travel and Tour
           </div>
 
           {/* Hamburger Toggle (Mobile) */}

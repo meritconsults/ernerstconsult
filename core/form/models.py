@@ -48,7 +48,7 @@ class Form(models.Model):
     last_name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=100)
     age = models.CharField(max_length=10)
-    date_of_birth = models.DateTimeField(auto_now_add=True)
+    date_of_birth = models.DateTimeField()
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="male")
     telephone = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
@@ -58,6 +58,7 @@ class Form(models.Model):
     work_experience = models.CharField(max_length=10)
     elegibility = models.CharField(max_length=10, choices=MULTIPLE_CHOICE, default='no')
     traveling_experience = models.CharField(max_length=10, choices=MULTIPLE_CHOICE, default='no')
-
+    ghana_card = models.CharField(max_length=100, null=False, blank=True)
+    passport_no = models.CharField(max_length=100, null=False, blank=True)
 
 

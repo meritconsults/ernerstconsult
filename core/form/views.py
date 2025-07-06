@@ -4,6 +4,7 @@ from rest_framework import status
 from .models import Form
 from .serializers import FormSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework.generics import ListAPIView
 
 # POST new form data / GET all forms
 class FormListCreateView(APIView):
@@ -41,3 +42,7 @@ class FormDetailView(APIView):
         form = self.get_object(pk)
         form.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class SubmittedFormListView(ListAPIView):
+    queryset = Form.objects.all()
+    serializer_class = FormSerializer

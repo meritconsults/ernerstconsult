@@ -25,6 +25,12 @@ function PaymentForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if transaction_id is exactly 11 digits
+    if (!/^\d{11}$/.test(formData.transaction_id)) {
+      alert('Incorrect Transaction ID');
+      return;
+    }
+
     try {
       await axiosInstance.post('/payments/payment/', formData);
       localStorage.setItem('hasPaid', 'true'); // ✅ Set flag
@@ -36,8 +42,9 @@ function PaymentForm() {
   };
 
   const [showPopup, setShowPopup] = useState(false);
-  const payName = "John Doe";
-  const mobileNumber = "0535859825";
+  const payName = "Festus Kofi Nyarko";
+  const mobileNumber = "0538134912";
+  const amount = "Ghs500.00"
   const ref = "Work Abroad"
 
   const handleClick = () => {
@@ -61,6 +68,7 @@ function PaymentForm() {
               {/* <h2> Payment Details</h2> */}
               <p>Mobile Money Number : {mobileNumber}</p>
               <p> Recipient Name: {payName}</p>
+              <p>Amount: <b className='text-green-600'>{amount} </b> </p>
               <p>Reference: {ref} </p>
               <button className='text-red-600'  onClick={handleClose}> Close</button>
             </div>
